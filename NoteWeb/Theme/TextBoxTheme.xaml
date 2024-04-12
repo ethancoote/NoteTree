@@ -17,6 +17,7 @@
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
                                      Foreground="White"
+                                     CaretBrush="White"
                                      FontSize="16"
                                      x:Name="SearchBox"/>
                             
