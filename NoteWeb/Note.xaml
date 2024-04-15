@@ -11,8 +11,16 @@
         ResizeMode="CanResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="MediumPurple">
+    <Border Background="#b874ff">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0"
+                        Background="#a34bff"
+                        MouseLeftButtonDown="MoveWindow_Hold"/>
 
         </Grid>
     </Border>

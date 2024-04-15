@@ -11,8 +11,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="#3c274e"
-            CornerRadius="15">
+    <Border Background="#3c274e">
         <Grid>
             
             <Grid.ColumnDefinitions>
@@ -21,17 +20,27 @@
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <StackPanel Background="#1e1327"
+                        MouseLeftButtonDown="MoveWindow_Hold"/>
+            <StackPanel Grid.Row="0"
+                        Grid.Column="1"
+                        Background="#1e1327"
+                        MouseLeftButtonDown="MoveWindow_Hold"/>
+
+
             <TextBlock Text="NoteWeb"
+                       Grid.Row="1"
                        VerticalAlignment="Center"
                        Margin="25,0,0,0"
                        FontSize="23"
                        Foreground="white"/>
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="2">
                 <RadioButton Content="New Note"
                              Height="70"
                              FontSize="23"
@@ -57,6 +66,7 @@
                      VerticalContentAlignment="Center"
                      HorizontalAlignment="Left"
                      Grid.Column="1"
+                     Grid.Row="1"
                      Margin="25,0,0,0"
                      Style="{StaticResource SearchTextBox}"/>
 

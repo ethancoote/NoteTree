@@ -23,5 +23,10 @@ namespace NoteWeb
         {
             InitializeComponent();
         }
+
+        private void MoveWindow_Hold(object sender, RoutedEventArgs e)
+        {
+            DragMove();
+        }
     }
 }

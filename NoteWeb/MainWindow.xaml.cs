@@ -26,5 +26,10 @@ namespace NoteWeb
             Note note = new Note();
             note.Show();
         }
+
+        private void MoveWindow_Hold(object sender, RoutedEventArgs e)
+        {
+            DragMove();
+        }
     }
 }
