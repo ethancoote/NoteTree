@@ -16,7 +16,7 @@
         <Grid>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -36,15 +36,16 @@
                              Height="70"
                              FontSize="23"
                              Foreground="white"
+                             Click="NewNote_Click"
                              Style="{StaticResource ButtonThemeHome }"/>
 
-                <RadioButton Content="View Web"
+                <RadioButton Content="Recent"
                              Height="70"
                              FontSize="23"
                              Foreground="white"
                              Style="{StaticResource ButtonThemeHome }"/>
 
-                <RadioButton Content="Recent"
+                <RadioButton Content="View Web"
                              Height="70"
                              FontSize="23"
                              Foreground="white"
