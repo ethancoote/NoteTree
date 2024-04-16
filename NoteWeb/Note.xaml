@@ -8,9 +8,12 @@
         Title="Note" 
         Height="450" Width="400"
         WindowStyle="None"
-        ResizeMode="CanResize"
-        Background="Transparent"
-        AllowsTransparency="True">
+        ResizeMode="CanResize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0"
+                      CornerRadius="0"
+                      CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
     <Border Background="#b874ff">
         <Grid>
             <Grid.RowDefinitions>
