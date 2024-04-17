@@ -25,6 +25,38 @@
                         Background="#a34bff"
                         MouseLeftButtonDown="MoveWindow_Hold"/>
 
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">    
+                <Button x:Name="MinimizeButton"
+                        Content="-"
+                        Width="40"
+                        Height="25"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontSize="15"
+                        Foreground="White"
+                        Click="MinimizeWindow_Click"/>
+                <Button x:Name="FullScreenButton"
+                        Content="🗖"
+                        Width="40"
+                        Height="25"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontSize="15"
+                        Foreground="White"
+                        Click="MaximizeWindow_Click"/>
+                <Button x:Name="CloseButton"
+                        Content="X"
+                        Width="40"
+                        Height="25"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontSize="15"
+                        Foreground="White"
+                        Click="CloseWindow_Click"/>
+            </StackPanel>
+
         </Grid>
     </Border>
     
