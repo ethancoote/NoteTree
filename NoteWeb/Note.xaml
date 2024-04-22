@@ -57,6 +57,13 @@
                         Click="CloseWindow_Click"/>
             </StackPanel>
 
+            <TextBox Grid.Row="1"
+                     Background="Transparent"
+                     Foreground="White"
+                     Margin="5,5,5,5"
+                     FontSize="16"
+                     >
+            </TextBox>
         </Grid>
     </Border>
     
