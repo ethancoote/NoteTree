@@ -27,7 +27,7 @@
 
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
-                        HorizontalAlignment="Right">    
+                        HorizontalAlignment="Right">
                 <Button x:Name="MinimizeButton"
                         Content="-"
                         Width="40"
@@ -57,12 +57,43 @@
                         Click="CloseWindow_Click"/>
             </StackPanel>
 
+            <Menu Background="Transparent"
+                  Grid.Column="1"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Foreground="White"
+                  Width="32"
+                  BorderThickness="0">
+                <MenuItem HorizontalContentAlignment="Center"
+                          Header="File">
+                    <MenuItem Header="Save" 
+                              InputGestureText="CTRL+S"
+                              Background="Black"
+                              BorderBrush="Black"/>
+                </MenuItem>
+            </Menu>
+            <!--<StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button x:Name="SaveFileButton"
+                        Content="SAVE"
+                        Width="45"
+                        Height="25"
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontSize="15"
+                        Foreground="White"/>
+            </StackPanel>-->
+
             <TextBox Grid.Row="1"
                      Background="Transparent"
                      Foreground="White"
-                     Margin="5,5,5,5"
+                     Margin="5,10,5,10"
                      FontSize="16"
-                     >
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     BorderThickness="0">
             </TextBox>
         </Grid>
     </Border>
