@@ -11,7 +11,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="#3c274e">
+    <Border Background="#242424">
         <Grid>
             
             <Grid.ColumnDefinitions>
@@ -25,11 +25,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <StackPanel Background="#1e1327"
+            <StackPanel Background="#171717"
                         MouseLeftButtonDown="MoveWindow_Hold"/>
             <StackPanel Grid.Row="0"
                         Grid.Column="1"
-                        Background="#1e1327"
+                        Background="#171717"
                         MouseLeftButtonDown="MoveWindow_Hold"/>
 
             <StackPanel Grid.Column="1"
@@ -37,30 +37,15 @@
                         HorizontalAlignment="Right">
                 <Button x:Name="MinimizeButton"
                         Content="-"
-                        Width="40"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"
+                        Style="{StaticResource ButtonThemeCorner }"
                         Click="MinimizeWindow_Click"/>
                 <Button x:Name="FullScreenButton"
                         Content="🗖"
-                        Width="40"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"
+                        Style="{StaticResource ButtonThemeCorner }"
                         Click="MaximizeWindow_Click"/>
                 <Button x:Name="CloseButton"
                         Content="X"
-                        Width="40"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"
+                        Style="{StaticResource ButtonThemeCorner }"
                         Click="CloseWindow_Click"/>
             </StackPanel>
 
@@ -73,24 +58,21 @@
                        Foreground="white"/>
 
             <StackPanel Grid.Row="2">
-                <RadioButton Content="New Note"
-                             Height="70"
-                             FontSize="23"
-                             Foreground="white"
-                             Click="NewNote_Click"
-                             Style="{StaticResource ButtonThemeHome }"/>
+                <Button Content="New Note"
+                        Height="70"
+                        FontSize="23"
+                        Click="NewNote_Click"
+                        Style="{StaticResource ButtonThemeHome }"/>
 
-                <RadioButton Content="Recent"
-                             Height="70"
-                             FontSize="23"
-                             Foreground="white"
-                             Style="{StaticResource ButtonThemeHome }"/>
+                <Button Content="Recent"
+                        Height="70"
+                        FontSize="23"
+                        Style="{StaticResource ButtonThemeHome }"/>
 
-                <RadioButton Content="View Web"
-                             Height="70"
-                             FontSize="23"
-                             Foreground="white"
-                             Style="{StaticResource ButtonThemeHome }"/>
+                <Button Content="View Web"
+                        Height="70"
+                        FontSize="23"
+                        Style="{StaticResource ButtonThemeHome }"/>
             </StackPanel>
 
             <TextBox Width="500"

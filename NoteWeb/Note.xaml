@@ -14,7 +14,7 @@
                       CornerRadius="0"
                       CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
-    <Border Background="#b874ff">
+    <Border Background="#282828">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -22,7 +22,7 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0"
-                        Background="#a34bff"
+                        Background="#171717"
                         MouseLeftButtonDown="MoveWindow_Hold"/>
 
             <StackPanel Grid.Column="1"
@@ -30,30 +30,15 @@
                         HorizontalAlignment="Right">
                 <Button x:Name="MinimizeButton"
                         Content="-"
-                        Width="40"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"
+                        Style="{StaticResource ButtonThemeCorner }"
                         Click="MinimizeWindow_Click"/>
                 <Button x:Name="FullScreenButton"
                         Content="🗖"
-                        Width="40"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"
+                        Style="{StaticResource ButtonThemeCorner }"
                         Click="MaximizeWindow_Click"/>
                 <Button x:Name="CloseButton"
                         Content="X"
-                        Width="40"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"
+                        Style="{StaticResource ButtonThemeCorner }"
                         Click="CloseWindow_Click"/>
             </StackPanel>
 
@@ -69,8 +54,7 @@
                           Header="File">
                     <MenuItem Header="Save" 
                               InputGestureText="CTRL+S"
-                              Background="Black"
-                              BorderBrush="Black"/>
+                              Foreground="Black"/>
                 </MenuItem>
             </Menu>
             <!--<StackPanel Grid.Column="1"
@@ -93,7 +77,8 @@
                      FontSize="16"
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
-                     BorderThickness="0">
+                     BorderThickness="0"
+                     CaretBrush="White">
             </TextBox>
         </Grid>
     </Border>
