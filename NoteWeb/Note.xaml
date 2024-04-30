@@ -54,7 +54,8 @@
                           Header="File">
                     <MenuItem Header="Save" 
                               InputGestureText="CTRL+S"
-                              Foreground="Black"/>
+                              Foreground="Black"
+                              Click="SaveNote_Click"/>
                 </MenuItem>
             </Menu>
             <!--<StackPanel Grid.Column="1"
@@ -78,7 +79,8 @@
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      BorderThickness="0"
-                     CaretBrush="White">
+                     CaretBrush="White"
+                     x:Name="FileTextBox">
             </TextBox>
         </Grid>
     </Border>

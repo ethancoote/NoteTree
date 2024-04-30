@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace NoteWeb
 {
@@ -16,14 +17,36 @@ namespace NoteWeb
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public MainWindow()
         {
+            // directory/file paths
+            string dirPath = docPath + "/NoteTree";
+            string notesPath = dirPath + "/Notes";
+            string logPath = dirPath + "/notesLog.txt";
+
+            // creating directories/files
+            Directory.CreateDirectory(dirPath);
+            Directory.CreateDirectory(notesPath);
+            File.AppendAllText(logPath, "");
+            
             InitializeComponent();
         }
 
         private void NewNote_Click(object sender, RoutedEventArgs e)
         {
-            Note note = new Note();
+            // getting logFile data for new note
+            string logPath = docPath + "/NoteTree/notesLog.txt";
+            int noteCount = File.ReadLines(logPath).Count();
+            noteCount += 1;
+
+            // this is formatted as 'NoteName~~NoteFileName.txt'
+            // only the NoteName is displayed to the user
+            File.AppendAllText(logPath, "Note" + noteCount.ToString() + "~~Note" + noteCount.ToString() + ".txt\n");
+
+            // creating new note
+            Note note = new Note(noteCount);
+
             note.Show();
         }
 
