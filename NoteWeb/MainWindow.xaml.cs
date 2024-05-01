@@ -8,7 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Diagnostics;
 
 namespace NoteWeb
 {
@@ -18,8 +20,11 @@ namespace NoteWeb
     public partial class MainWindow : Window
     {
         private readonly string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private ObservableCollection<string> notesCollection;
+
         public MainWindow()
         {
+            DataContext = this;
             // directory/file paths
             string dirPath = docPath + "/NoteTree";
             string notesPath = dirPath + "/Notes";
@@ -29,8 +34,46 @@ namespace NoteWeb
             Directory.CreateDirectory(dirPath);
             Directory.CreateDirectory(notesPath);
             File.AppendAllText(logPath, "");
-            
+
+            notesCollection = new ObservableCollection<string>();
+            InitializeCollection();
             InitializeComponent();
+            
+        }
+
+        public ObservableCollection<string> NotesCollection
+        {
+            get { return notesCollection; }
+            set { notesCollection = value; }
+        }
+
+        private void InitializeCollection()
+        {
+            // getting number of existing notes
+            string logPath = docPath + "/NoteTree/notesLog.txt";
+            int noteCount = File.ReadLines(logPath).Count();
+
+            // adding the titles of each not to the notes collection
+            int i;
+            string currentNote;
+            for (i = 1; i <= noteCount; i++) 
+            {
+                currentNote = GetNoteTitle(i);
+                NotesCollection.Add(currentNote);
+            }
+        }
+
+        private string GetNoteTitle(int noteNum) 
+        {
+            // getting log file path
+            string noteTitle;
+            string logPath = docPath + "/NoteTree/notesLog.txt";
+
+            // getting the note title
+            string line = File.ReadLines(logPath).Skip(noteNum - 1).Take(1).First();
+            string[] splitStr = line.Split("~~");
+            noteTitle = splitStr[0];
+            return noteTitle;
         }
 
         private void NewNote_Click(object sender, RoutedEventArgs e)
@@ -59,6 +102,7 @@ namespace NoteWeb
         {
             Close();
         }
+
         private void MaximizeWindow_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Maximized)
@@ -71,6 +115,7 @@ namespace NoteWeb
             }
             
         }
+
         private void MinimizeWindow_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
