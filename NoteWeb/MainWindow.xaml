@@ -89,7 +89,13 @@
                 <ListView Name="NotesList"
                           Background="Transparent"
                           BorderThickness="0"
-                          ItemsSource="{Binding NotesCollection}"/>
+                          FontSize="23"
+                          Foreground="White"
+                          Padding="25,25,25,25"
+                          ItemsSource="{Binding NotesCollection}">
+                    
+                </ListView>
+                
             </StackPanel>
 
         </Grid>
