@@ -76,6 +76,34 @@ namespace NoteWeb
             return noteTitle;
         }
 
+        private int GetNoteNum(string noteTitle)
+        {
+            // getting log file path
+            int noteNum = -1;
+            string logPath = docPath + "/NoteTree/notesLog.txt";
+
+            // getting note file name
+            var lines = File.ReadLines(logPath);
+            foreach (string line in lines)
+            {
+                if (line.Contains(noteTitle + "~~"))
+                {
+                    string[] splitStr = line.Split("~~Note");
+                    string[] splitStr1 = splitStr[1].Split(".");
+                    noteNum = Convert.ToInt32(splitStr1[0]);
+                    break;
+                }
+            }
+
+            return noteNum;
+        }
+
+        private void OpenNote(int noteNum) 
+        {
+            Note note = new Note(noteNum, 1);
+            note.Show();
+        }
+
         private void NewNote_Click(object sender, RoutedEventArgs e)
         {
             // getting logFile data for new note
@@ -88,7 +116,7 @@ namespace NoteWeb
             File.AppendAllText(logPath, "Note" + noteCount.ToString() + "~~Note" + noteCount.ToString() + ".txt\n");
 
             // creating new note
-            Note note = new Note(noteCount);
+            Note note = new Note(noteCount, 0);
 
             note.Show();
         }
@@ -96,7 +124,16 @@ namespace NoteWeb
         private void NotesList_Click(object sender, RoutedEventArgs e)
         {
             string selectedItem = (string)NotesList.SelectedItem;
-            Trace.WriteLine(selectedItem);
+            int noteNum = GetNoteNum(selectedItem);
+            if (noteNum == -1)
+            {
+                Trace.WriteLine("Error: Filename note found");
+            }
+            else 
+            {
+                Trace.WriteLine(noteNum);
+                OpenNote(noteNum);
+            }
         }
 
         private void MoveWindow_Hold(object sender, RoutedEventArgs e)

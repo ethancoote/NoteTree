@@ -22,17 +22,32 @@ namespace NoteWeb
     {
         private readonly string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private int noteCount;
-        public Note(int noteCount)
+        public Note(int noteCount, int isNew)
         {
             this.noteCount = noteCount;
             InitializeComponent();
-            createNewNote();
+            if (isNew == 0) // note is new
+            {
+                CreateNewNote();
+            }
+            else if (isNew == 1) // note already exists
+            {
+                LoadNote();
+            }
+            
         }
 
-        private void createNewNote()
+        private void CreateNewNote()
         {
             string newNotePath = docPath + "/NoteTree/Notes/Note" + noteCount.ToString() + ".txt";
             File.AppendAllText(newNotePath, "");
+        }
+
+        private void LoadNote()
+        {
+            string newNotePath = docPath + "/NoteTree/Notes/Note" + noteCount.ToString() + ".txt";
+            var noteFileText = File.ReadAllText(newNotePath);
+            FileTextBox.Text = noteFileText;
         }
 
         private void MoveWindow_Hold(object sender, RoutedEventArgs e)
@@ -59,7 +74,6 @@ namespace NoteWeb
         private void MinimizeWindow_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
-            Trace.WriteLine("hello");
         }
 
         private void SaveNote_Click(object sender, RoutedEventArgs e)
@@ -67,7 +81,6 @@ namespace NoteWeb
             Trace.WriteLine("Path=" + docPath);
             string notePath = docPath + "/NoteTree/Notes/Note" + noteCount.ToString() + ".txt";
             File.WriteAllText(notePath, FileTextBox.Text);
-            //File.WriteAllText(Path.Combine(docPath, "notes/testFile.txt"), FileTextBox.Text);
         }
     }
 }
