@@ -93,6 +93,12 @@ namespace NoteWeb
             note.Show();
         }
 
+        private void NotesList_Click(object sender, RoutedEventArgs e)
+        {
+            string selectedItem = (string)NotesList.SelectedItem;
+            Trace.WriteLine(selectedItem);
+        }
+
         private void MoveWindow_Hold(object sender, RoutedEventArgs e)
         {
             DragMove();

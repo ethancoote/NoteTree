@@ -91,8 +91,8 @@
                           BorderThickness="0"
                           FontSize="23"
                           Foreground="White"
-                          Padding="25,25,25,25"
-                          ItemsSource="{Binding NotesCollection}">
+                          ItemsSource="{Binding NotesCollection}"
+                          PreviewMouseLeftButtonUp="NotesList_Click">
                     
                 </ListView>
                 
