@@ -11,7 +11,9 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True">
-    <Border Background="#242424">
+    <Border Background="#242424"
+            BorderBrush="Black"
+            BorderThickness="2">
         <Grid>
             
             <Grid.ColumnDefinitions>
@@ -22,7 +24,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="470"/>
+                <RowDefinition Height="469"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -50,9 +52,14 @@
                         Click="CloseWindow_Click"/>
             </StackPanel>
 
-            <StackPanel Grid.Row="1"
-                        Grid.Column="0"
-                        Background="#212121"/>
+            <Border BorderBrush="Black"
+                    BorderThickness="0, 1, 1, 1"
+                    Grid.Row="1">
+                <StackPanel Grid.Row="1"
+                            Grid.Column="0"
+                            Background="#212121"/>
+            </Border>
+            
             <StackPanel Grid.Row="2"
                         Grid.Column="0"
                         Background="#212121"/>
@@ -62,25 +69,33 @@
                        Margin="25,0,0,0"
                        FontSize="23"
                        Foreground="white"/>
+            
+            <Border BorderBrush="Black"
+                    BorderThickness="0, 0, 1, 0"
+                    Grid.Row="2">
+                <StackPanel>
+                    <Button Content="New Note"
+                            Height="70"
+                            FontSize="23"
+                            Click="NewNote_Click"
+                            Style="{StaticResource ButtonThemeHome }"/>
 
-            <StackPanel Grid.Row="2">
-                <Button Content="New Note"
-                        Height="70"
-                        FontSize="23"
-                        Click="NewNote_Click"
-                        Style="{StaticResource ButtonThemeHome }"/>
+                    <!--<Button Content="Recent"
+                            Height="70"
+                            FontSize="23"
+                            Style="{StaticResource ButtonThemeHome }"/>
 
-                <!--<Button Content="Recent"
-                        Height="70"
-                        FontSize="23"
-                        Style="{StaticResource ButtonThemeHome }"/>
-
-                <Button Content="View Tree"
-                        Height="70"
-                        FontSize="23"
-                        Style="{StaticResource ButtonThemeHome }"/>-->
-            </StackPanel>
-
+                    <Button Content="View Tree"
+                            Height="70"
+                            FontSize="23"
+                            Style="{StaticResource ButtonThemeHome }"/>-->
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="Black"
+                    BorderThickness="0, 1, 0, 0"
+                    Grid.Row="1"
+                    Grid.Column="1"/>
+            
             <TextBox Width="500"
                      Height="45"
                      VerticalContentAlignment="Center"

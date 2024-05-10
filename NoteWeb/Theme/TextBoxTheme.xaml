@@ -9,7 +9,8 @@
                             Background="#353536">
                         <Grid>
                             
-                            <Rectangle StrokeThickness="1"/>
+                            <Rectangle StrokeThickness="1"
+                                       Stroke="Black"/>
                             
                             <TextBox Margin="23,0,0,0"
                                      Text="{TemplateBinding Text}"
