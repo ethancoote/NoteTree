@@ -131,7 +131,6 @@ namespace NoteWeb
             }
             else 
             {
-                Trace.WriteLine(noteNum);
                 OpenNote(noteNum);
             }
         }

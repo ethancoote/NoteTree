@@ -52,24 +52,11 @@
                   BorderThickness="0">
                 <MenuItem HorizontalContentAlignment="Center"
                           Header="File">
-                    <MenuItem Header="Save" 
-                              InputGestureText="CTRL+S"
+                    <MenuItem Command="Save"
                               Foreground="Black"
                               Click="SaveNote_Click"/>
                 </MenuItem>
             </Menu>
-            <!--<StackPanel Grid.Column="1"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Left">
-                <Button x:Name="SaveFileButton"
-                        Content="SAVE"
-                        Width="45"
-                        Height="25"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        FontSize="15"
-                        Foreground="White"/>
-            </StackPanel>-->
 
             <TextBox Grid.Row="1"
                      Background="Transparent"
@@ -84,5 +71,15 @@
             </TextBox>
         </Grid>
     </Border>
-    
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Save"
+                        CanExecute="CommandBindingSave_CanExecute"
+                        Executed="CommandBindingSave_Executed"/>
+    </Window.CommandBindings>
+    <!--<Window.InputBindings>
+        <KeyBinding Modifiers="Ctrl"
+                    Key="S"
+                    Command="{Binding SaveNote_Click}"/>
+    </Window.InputBindings>-->
 </Window>
