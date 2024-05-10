@@ -22,6 +22,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="80"/>
+                <RowDefinition Height="470"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
@@ -49,7 +50,12 @@
                         Click="CloseWindow_Click"/>
             </StackPanel>
 
-
+            <StackPanel Grid.Row="1"
+                        Grid.Column="0"
+                        Background="#212121"/>
+            <StackPanel Grid.Row="2"
+                        Grid.Column="0"
+                        Background="#212121"/>
             <TextBlock Text="NoteTree"
                        Grid.Row="1"
                        VerticalAlignment="Center"
@@ -64,7 +70,7 @@
                         Click="NewNote_Click"
                         Style="{StaticResource ButtonThemeHome }"/>
 
-                <Button Content="Recent"
+                <!--<Button Content="Recent"
                         Height="70"
                         FontSize="23"
                         Style="{StaticResource ButtonThemeHome }"/>
@@ -72,7 +78,7 @@
                 <Button Content="View Tree"
                         Height="70"
                         FontSize="23"
-                        Style="{StaticResource ButtonThemeHome }"/>
+                        Style="{StaticResource ButtonThemeHome }"/>-->
             </StackPanel>
 
             <TextBox Width="500"
@@ -84,9 +90,10 @@
                      Margin="25,0,0,0"
                      Style="{StaticResource SearchTextBox}"/>
 
-            <StackPanel Grid.Row="3"
+            <StackPanel Grid.Row="2"
                         Grid.Column="2">
                 <ListView Name="NotesList"
+                          Margin="25,0,0,0"
                           Background="Transparent"
                           BorderThickness="0"
                           FontSize="23"
@@ -97,6 +104,25 @@
                 </ListView>
                 
             </StackPanel>
+
+            <StackPanel Grid.Row="3"
+                        Grid.Column="0"
+                        Background="#1d1d1d">
+                <TextBlock VerticalAlignment="Center"
+                           Margin="25,0,0,0"
+                           FontSize="16"
+                           Foreground="gray"
+                           Text="Alpha v0.0.9"/>
+
+            </StackPanel>
+            <StackPanel Grid.Row="3"
+                        Grid.Column="1"
+                        Background="#1d1d1d"/>
+            <TextBlock Grid.Row="3"
+                       Grid.Column="1"
+                       Foreground="gray"
+                       FontSize="16"
+                       Text="|"/>
 
         </Grid>
     </Border>
