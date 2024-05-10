@@ -14,7 +14,9 @@
                       CornerRadius="0"
                       CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
-    <Border Background="#282828">
+    <Border Background="#282828"
+            BorderBrush="Black"
+            BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -25,6 +27,9 @@
                         Background="#171717"
                         MouseLeftButtonDown="MoveWindow_Hold"/>
 
+            <Border BorderBrush="Black"
+                    BorderThickness="0, 0, 0, 1"
+                    Grid.Row="0"/>
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"
                         HorizontalAlignment="Right">
