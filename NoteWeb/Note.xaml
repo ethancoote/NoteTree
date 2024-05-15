@@ -16,7 +16,7 @@
     </WindowChrome.WindowChrome>
     <Border Background="#282828"
             BorderBrush="Black"
-            BorderThickness="1">
+            BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -82,9 +82,4 @@
                         CanExecute="CommandBindingSave_CanExecute"
                         Executed="CommandBindingSave_Executed"/>
     </Window.CommandBindings>
-    <!--<Window.InputBindings>
-        <KeyBinding Modifiers="Ctrl"
-                    Key="S"
-                    Command="{Binding SaveNote_Click}"/>
-    </Window.InputBindings>-->
 </Window>

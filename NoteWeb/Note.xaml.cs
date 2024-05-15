@@ -78,8 +78,7 @@ namespace NoteWeb
 
         private void SaveNote_Click(object sender, RoutedEventArgs e)
         {
-            string notePath = docPath + "/NoteTree/Notes/Note" + noteCount.ToString() + ".txt";
-            File.WriteAllText(notePath, FileTextBox.Text);
+            SaveNote();
         }
 
         private void CommandBindingSave_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -89,8 +88,14 @@ namespace NoteWeb
 
         private void CommandBindingSave_Executed(object sender, ExecutedRoutedEventArgs e)
         {
+            SaveNote();
+        }
+
+        private void SaveNote()
+        {
             string notePath = docPath + "/NoteTree/Notes/Note" + noteCount.ToString() + ".txt";
             File.WriteAllText(notePath, FileTextBox.Text);
+
         }
     }
 }
