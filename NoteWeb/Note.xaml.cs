@@ -93,9 +93,41 @@ namespace NoteWeb
 
         private void SaveNote()
         {
+            string title = "";
             string notePath = docPath + "/NoteTree/Notes/Note" + noteCount.ToString() + ".txt";
             File.WriteAllText(notePath, FileTextBox.Text);
+            
+            // reading first line of file
+            StringReader strReader = new StringReader(FileTextBox.Text);
+            string? titleLine = strReader.ReadLine();
+            
+            // getting first 30 characters of title line
+            if (titleLine != null)
+            {
+                if (titleLine.Length <= 30)
+                {
+                    title = titleLine;
+                }
+                else
+                {
+                    title = titleLine.Substring(0, 30);
+                }
+            }
 
+            // updating the note title
+            if (title != "")
+            {
+                ChangeNoteTitle(title);
+            }
+        }
+
+        private void ChangeNoteTitle(string title)
+        {
+            string logPath = docPath + "/NoteTree/notesLog.txt";
+            string newLine = title + "~~Note" + noteCount.ToString() + ".txt";
+            string[] noteText = File.ReadAllLines(logPath);
+            noteText[noteCount - 1] = newLine;
+            File.WriteAllLines(logPath, noteText);
         }
     }
 }
