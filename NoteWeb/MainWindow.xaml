@@ -62,7 +62,7 @@
             
             <StackPanel Grid.Row="2"
                         Grid.Column="0"
-                        Background="#212121"/>
+                        Background="#1d1d1d"/>
             <TextBlock Text="NoteTree"
                        Grid.Row="1"
                        VerticalAlignment="Center"
@@ -122,7 +122,7 @@
 
             <StackPanel Grid.Row="3"
                         Grid.Column="0"
-                        Background="#1d1d1d">
+                        Background="#171717">
                 <TextBlock VerticalAlignment="Center"
                            Margin="25,0,0,0"
                            FontSize="16"
@@ -132,7 +132,7 @@
             </StackPanel>
             <StackPanel Grid.Row="3"
                         Grid.Column="1"
-                        Background="#1d1d1d"/>
+                        Background="#171717"/>
             <TextBlock Grid.Row="3"
                        Grid.Column="1"
                        Foreground="gray"
