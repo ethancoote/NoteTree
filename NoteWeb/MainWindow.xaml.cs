@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Diagnostics;
 
@@ -21,6 +22,9 @@ namespace NoteWeb
     {
         private readonly string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private ObservableCollection<string> notesCollection;
+        private ObservableCollection<string> searchCollection;
+        private ICollectionView filteredCollection;
+        private string searchKey = string.Empty;
 
         public MainWindow()
         {
@@ -36,15 +40,21 @@ namespace NoteWeb
             File.AppendAllText(logPath, "");
 
             notesCollection = new ObservableCollection<string>();
+            searchCollection = new ObservableCollection<string>();
             InitializeCollection();
             InitializeComponent();
-            
         }
 
         public ObservableCollection<string> NotesCollection
         {
             get { return notesCollection; }
             set { notesCollection = value; }
+        }
+
+        public ObservableCollection<string> SearchCollection
+        {
+            get { return searchCollection; }
+            set { searchCollection = value; }
         }
 
         private void InitializeCollection()
@@ -60,7 +70,64 @@ namespace NoteWeb
             {
                 currentNote = GetNoteTitle(i);
                 NotesCollection.Add(currentNote);
+                SearchCollection.Add(currentNote);
             }
+            //FilteredCollection = CollectionViewSource.GetDefaultView(NotesCollection);
+        }
+
+        public ICollectionView FilteredCollection
+        {
+            get { return filteredCollection; }
+            set { filteredCollection = value;  }
+        }
+
+        private bool Filter(object obj)
+        {
+            string? noteTitle = obj as string;
+            if (noteTitle == null)
+            {
+                return false;
+            }
+            else
+            {
+                if (noteTitle.Contains(SearchKey))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            } 
+        }
+
+        public string SearchKey
+        {
+            get { return searchKey; }
+            set 
+            { 
+                searchKey = value;
+            }
+        }
+
+        private void SearchBarEventHandler(object sender, EventArgs e)
+        {
+            Trace.Write("hello");
+            TextBox? textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                Trace.Write(textBox.Text);
+                SearchCollection.Clear();
+                foreach (string noteTitle in notesCollection)
+                {
+                    if (noteTitle.Contains(textBox.Text))
+                    {
+                        SearchCollection.Add(noteTitle);
+                    }
+                }
+            }
+            
+            
         }
 
         private string GetNoteTitle(int noteNum) 

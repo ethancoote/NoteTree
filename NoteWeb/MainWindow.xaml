@@ -95,6 +95,18 @@
                     BorderThickness="0, 1, 0, 0"
                     Grid.Row="1"
                     Grid.Column="1"/>
+
+            <TextBlock Grid.Column="1"
+                       Grid.Row="1"
+                       Width="500"
+                       Height="45"
+                       HorizontalAlignment="Left"
+                       Margin="25,0,0,0"
+                       Background="#1a1a1a"
+                       Foreground="DarkGray"
+                       VerticalAlignment="Center"
+                       IsHitTestVisible="False"
+                       FontSize="16"/>
             
             <TextBox Width="500"
                      Height="45"
@@ -102,8 +114,23 @@
                      HorizontalAlignment="Left"
                      Grid.Column="1"
                      Grid.Row="1"
-                     Margin="25,0,0,0"
-                     Style="{StaticResource SearchTextBox}"/>
+                     Margin="30,0,0,0"
+                     TextChanged="SearchBarEventHandler"
+                     BorderBrush="Transparent"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     FontSize="16"
+                     Foreground="White"
+                     CaretBrush="White"
+                     x:Name="SearchNotesTextBox"/>
+
+            <!--<TextBlock Grid.Column="1"
+                       Grid.Row="1"
+                       Width="500"
+                       Height="45"
+                       HorizontalAlignment="Left"
+                       Margin="23,0,0,0"
+                       Background="#1a1a1a"/>-->
 
             <StackPanel Grid.Row="2"
                         Grid.Column="2">
@@ -113,7 +140,7 @@
                           BorderThickness="0"
                           FontSize="23"
                           Foreground="White"
-                          ItemsSource="{Binding NotesCollection}"
+                          ItemsSource="{Binding SearchCollection}"
                           PreviewMouseLeftButtonUp="NotesList_Click">
                     
                 </ListView>

@@ -13,7 +13,7 @@
                                        Stroke="Black"/>
                             
                             <TextBox Margin="23,0,0,0"
-                                     Text="{TemplateBinding Text}"
+                                     Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
                                      BorderThickness="0"
                                      Background="Transparent"
                                      VerticalContentAlignment="Center"
