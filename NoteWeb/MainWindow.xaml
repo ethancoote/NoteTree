@@ -168,7 +168,7 @@
                            Margin="25,0,0,0"
                            FontSize="16"
                            Foreground="gray"
-                           Text="Alpha v0.0.9"/>
+                           Text="Alpha v1.0.0"/>
 
             </StackPanel>
             <StackPanel Grid.Row="3"
