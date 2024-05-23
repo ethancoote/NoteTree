@@ -23,8 +23,6 @@ namespace NoteWeb
         private readonly string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private ObservableCollection<string> notesCollection;
         private ObservableCollection<string> searchCollection;
-        private ICollectionView filteredCollection;
-        private string searchKey = string.Empty;
 
         public MainWindow()
         {
@@ -73,41 +71,6 @@ namespace NoteWeb
                 SearchCollection.Add(currentNote);
             }
             //FilteredCollection = CollectionViewSource.GetDefaultView(NotesCollection);
-        }
-
-        public ICollectionView FilteredCollection
-        {
-            get { return filteredCollection; }
-            set { filteredCollection = value;  }
-        }
-
-        private bool Filter(object obj)
-        {
-            string? noteTitle = obj as string;
-            if (noteTitle == null)
-            {
-                return false;
-            }
-            else
-            {
-                if (noteTitle.Contains(SearchKey))
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            } 
-        }
-
-        public string SearchKey
-        {
-            get { return searchKey; }
-            set 
-            { 
-                searchKey = value;
-            }
         }
 
         private void SearchBarEventHandler(object sender, EventArgs e)
