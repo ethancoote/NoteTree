@@ -96,18 +96,28 @@
                     Grid.Row="1"
                     Grid.Column="1"/>
 
+            <Rectangle Fill="#1a1a1a"
+                       Stroke="Black"
+                       StrokeThickness="1"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       Width="500"
+                       Height="45"
+                       HorizontalAlignment="Left"
+                       Margin="25,0,0,0"/>
+            
             <TextBlock Grid.Column="1"
                        Grid.Row="1"
                        Width="500"
                        Height="45"
                        HorizontalAlignment="Left"
                        Margin="25,0,0,0"
-                       Background="#1a1a1a"
+                       Background="Transparent"
                        Foreground="DarkGray"
                        VerticalAlignment="Center"
                        IsHitTestVisible="False"
                        FontSize="16"/>
-            
+
             <TextBox Width="500"
                      Height="45"
                      VerticalContentAlignment="Center"
@@ -122,7 +132,8 @@
                      FontSize="16"
                      Foreground="White"
                      CaretBrush="White"
-                     x:Name="SearchNotesTextBox"/>
+                     x:Name="SearchNotesTextBox">
+            </TextBox>
 
             <!--<TextBlock Grid.Column="1"
                        Grid.Row="1"
