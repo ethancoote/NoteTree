@@ -108,15 +108,18 @@
             
             <TextBlock Grid.Column="1"
                        Grid.Row="1"
+                       Name="SearchTextBlock"
                        Width="500"
                        Height="45"
                        HorizontalAlignment="Left"
-                       Margin="25,0,0,0"
+                       Margin="22,0,0,0"
                        Background="Transparent"
-                       Foreground="DarkGray"
+                       Foreground="Gray"
                        VerticalAlignment="Center"
                        IsHitTestVisible="False"
-                       FontSize="16"/>
+                       Padding="11"
+                       FontSize="16"
+                       Text="Search Notes..."/>
 
             <TextBox Width="500"
                      Height="45"

@@ -112,15 +112,21 @@ namespace NoteWeb
 
         private void SearchBarEventHandler(object sender, EventArgs e)
         {
-            Trace.Write("hello");
             TextBox? textBox = sender as TextBox;
             if (textBox != null)
             {
-                Trace.Write(textBox.Text);
+                if (textBox.Text == "")
+                {
+                    SearchTextBlock.Text = "Search Notes...";
+                }
+                else
+                {
+                    SearchTextBlock.Text = "";
+                }
                 SearchCollection.Clear();
                 foreach (string noteTitle in notesCollection)
                 {
-                    if (noteTitle.Contains(textBox.Text))
+                    if (noteTitle.ToLower().Contains(textBox.Text.ToLower()))
                     {
                         SearchCollection.Add(noteTitle);
                     }
